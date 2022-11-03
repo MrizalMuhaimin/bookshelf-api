@@ -1,0 +1,21 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "This is a dicoding submission for be class",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "lint": "eslint server --fix"
+  },
+  "author": "MRM",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@hapi/eslint-plugin": "^6.0.0",
+    "@hapi/hapi": "^20.2.2",
+    "nanoid": "^3.3.4"
+  }
+}
