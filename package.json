@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "lint": "eslint server --fix"
+    "lint": "eslint server",
+    "lint.fix": "eslint server --fix"
   },
   "author": "MRM",
   "license": "ISC",
