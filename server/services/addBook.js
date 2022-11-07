@@ -1,6 +1,7 @@
 const { nanoid } = require('nanoid');
 const { newBook } = require('../helpers/newBook');
 const books = require('../db/books');
+const { generalResponse } = require('../response');
 
 const addBook = (request, h) => {
   const { 
@@ -55,26 +56,26 @@ const addBook = (request, h) => {
   }
 
   if(name === undefined){
-    const response = h.response({
-      status:'fail',
-      message:'Gagal menambahkan buku. Mohon isi nama buku',
-    });
+    const response = h.response(generalResponse(
+      'fail',
+      'Gagal menambahkan buku. Mohon isi nama buku',
+    ));
     response.code(400);
     return response;
 
   }else if(readPage > pageCount){
-    const response = h.response({
-      status: 'fail',
-      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
-    });
+    const response = h.response(generalResponse(
+      'fail',
+      'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
+    ));
     response.code(400);
     return response;
   }
 
-  const response = h.response({
-    status: 'error',
-    message: 'Buku gagal ditambahkan',
-  });
+  const response = h.response(generalResponse(
+    'error',
+    'Buku gagal ditambahkan',
+  ));
   response.code(500);
   return response;
 };

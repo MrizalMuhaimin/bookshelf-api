@@ -1,4 +1,5 @@
 const books = require('../db/books');
+const { generalResponse } = require('../response');
 
 const getDetailBook = (request, h)=>{
   const { bookId } = request.params;
@@ -18,10 +19,10 @@ const getDetailBook = (request, h)=>{
 
   }
 
-  const response = h.response({
-    status: 'fail',
-    message: 'Buku tidak ditemukan',
-  });
+  const response = h.response(generalResponse(
+    'fail',
+    'Buku tidak ditemukan',
+  ));
   response.code(404);
   return response;
 };
